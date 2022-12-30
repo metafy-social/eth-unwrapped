@@ -4,6 +4,7 @@ import { MONGODB_URI } from "./config";
 
 export async function connectDb() {
     try {
+        mongoose.set("strictQuery", false);
         await mongoose.connect(MONGODB_URI);
         console.log('Connected to MongoDB');
     } catch (error) {

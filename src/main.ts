@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import { addressJoi } from './joi'
 import { metaScore } from "./lib";
+import UnwappedModel from './schema/unwapped.schema';
 
 const app = express();
 
@@ -15,6 +16,11 @@ app.get('/:address', async (req, res) => {
         res.status(400).send('Please enter a valid ethereum address');
         return;
     }
+    const savedData = await UnwappedModel.findById(req.params.address);
+    if (savedData) {
+        res.json(savedData);
+        return;
+    }
     const [unwrapped, error] = await metaScore(req.params.address);
     if (error || !unwrapped) {
         console.log(error);
@@ -23,7 +29,15 @@ app.get('/:address', async (req, res) => {
             .send('An unknown error occurred. Please try again later.');
         return;
     }
-    res.json(unwrapped);
+    res.json({
+        _id: req.params.address,
+        ...unwrapped
+    });
+    const newDataToSave = new UnwappedModel({
+        _id: req.params.address,
+        ...unwrapped,
+    });
+    await newDataToSave.save();
 });
 
 export default app;
