@@ -58,6 +58,10 @@ export async function metaScore(address: string) : Promise<[Unwrapped | null, st
     const block_timestamp_date = new Date(block_timestamp);
     const time_ago = timeAgo.format(block_timestamp_date.getTime());
     console.log("Oldest ", time_ago);
+    const current = Date.now();
+    const diff = current - block_timestamp_date.getTime();
+    const diffMonths = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+    unwrapped['score'] += diffMonths*4;
 
     let balance: BalanceData | null;
     [balance, _] = await getBalance(address);

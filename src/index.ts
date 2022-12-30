@@ -11,7 +11,7 @@ app.listen(PORT, () => {
 
 // import { metaScore } from "./lib";
 
-// metaScore("0x377ba90a0f828eaC2E63f956875a69e0c16D4C36").then(([data, error]) => {
+// metaScore("0x1cE742C9714edF159a4eD7C988d28E35118000df").then(([data, error]) => {
 //     if (error) {
 //         console.log(error);
 //     }
