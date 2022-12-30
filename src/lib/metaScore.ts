@@ -18,7 +18,7 @@ import {
 } from "./";
 import timeAgo from './../utils/time';
 
-const base = 1000000000000;
+const base = 10000000000000000;
 
 export async function metaScore(address: string) : Promise<[Unwrapped | null, string | null]> {
     // let metaScore = 0.0;
@@ -29,19 +29,19 @@ export async function metaScore(address: string) : Promise<[Unwrapped | null, st
     let nfts: NFTData | null, _;
     [nfts , _] = await getCollectedNFTs(address);
     if(!nfts) return [null, "No NFTs found for this address"];
-    unwrapped['score'] += nfts.total*3;
+    unwrapped['score'] += nfts.total*2;
     unwrapped['nfts'] = nfts.total;
 
     let tokens: TokenData | null;
     [tokens, _] = await getCollectedTokens(address);
     if(!tokens) return [null, "No tokens found for this address"];
-    unwrapped['score'] += tokens.length*2;
+    unwrapped['score'] += tokens.length;
     unwrapped['tokens'] = tokens.length;
 
     let contracts: number | null;
     [contracts, _] = await contractsCreated(address);
     if(contracts===null) return [null, "No contracts found for this address"];
-    unwrapped['score'] += contracts*5;
+    unwrapped['score'] += contracts*3;
     unwrapped['contracts'] = contracts;
 
     let transactions: TransactionData | null;
@@ -77,7 +77,7 @@ export async function metaScore(address: string) : Promise<[Unwrapped | null, st
     let swap: number | null;
     [swap, _] = await swaps(transactions);
     if (swap===null) return [null, "No swaps found for this address"];
-    unwrapped['score'] += swap*3;
+    unwrapped['score'] += swap*1.5;
     unwrapped['swaps'] = swap;
 
     let firstTransaction2022: Transaction | null;
