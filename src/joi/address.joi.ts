@@ -1,0 +1,3 @@
+import joi from 'joi';
+
+export default joi.string().pattern(/^0x[a-fA-F0-9]{40}$/)

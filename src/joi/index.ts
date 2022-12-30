@@ -1,0 +1,1 @@
+export { default as addressJoi } from './address.joi';
