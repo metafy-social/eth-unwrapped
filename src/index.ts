@@ -7,12 +7,18 @@
 //     console.log('Server started on port 3000');
 // });
 
-import { getTransactions } from "./lib/transactions";
+import { getFirstTransactionOf2022 } from "./lib/transactions";
+import { getOldestTransaction } from "./lib/oldestTransaction";
 
-getTransactions("0xB62644Da3BB532FdA71eb7A3B3fd8977492A723D").then(([data, error]) => {
+getFirstTransactionOf2022("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045").then(([data, error]) => {
     if (error) {
         console.log(error);
     }
-    console.log(data);
-    console.log(data?.result.length);
+    console.log("2022 started : ", data?.block_timestamp);
+});
+getOldestTransaction("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045").then(([data, error]) => {
+    if (error) {
+        console.log(error);
+    }
+    console.log("Oldest : ", data?.block_timestamp);
 });

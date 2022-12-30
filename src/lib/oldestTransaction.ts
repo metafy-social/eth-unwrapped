@@ -10,10 +10,10 @@ import {
     TransactionData, Transaction
 } from "./../interfaces";
 
-export async function getTransactions(address: string) : Promise<[TransactionData | null, string | null]> {
+async function getTransactions(address: string) : Promise<[TransactionData | null, string | null]> {
     const options = {
         method: 'GET',
-        url: `${MORALIS_BASE_URL}/${address}?chain=eth&from_date=2022-01-01`,
+        url: `${MORALIS_BASE_URL}/${address}?chain=eth`,
         headers: {
             accept: 'application/json', 
             'X-API-Key': MORALIS_API_KEY
@@ -26,7 +26,7 @@ export async function getTransactions(address: string) : Promise<[TransactionDat
         while(data.cursor !== null) {
             const { data: nextData } = await axios.request({
                 method: 'GET',
-                url: `${MORALIS_BASE_URL}/${address}?chain=eth&from_date=2022-01-01&cursor=${data.cursor}`,
+                url: `${MORALIS_BASE_URL}/${address}?chain=eth&cursor=${data.cursor}`,
                 headers: {
                     accept: 'application/json', 
                     'X-API-Key': MORALIS_API_KEY
@@ -45,15 +45,7 @@ export async function getTransactions(address: string) : Promise<[TransactionDat
     }
 }
 
-export async function getTransactionCount(address: string) : Promise<[number | null, string | null]> {
-    const [transactions, error] = await getTransactions(address);
-    if (error) {
-        return [null, error];
-    }
-    return [transactions?.total as number, null];
-}
-
-export async function getFirstTransactionOf2022(address: string) : Promise<[Transaction | null, string | null]> {
+export async function getOldestTransaction(address: string) : Promise<[Transaction | null, string | null]> {
     const [transactions, error] = await getTransactions(address);
     if (error) {
         return [null, error];
