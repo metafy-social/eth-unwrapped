@@ -1,20 +1,20 @@
-import app from './main';
-import {
-    PORT
-} from './utils/config';
+// import app from './main';
+// import {
+//     PORT
+// } from './utils/config';
 
-app.listen(PORT, () => {
-    console.log('Server started on port 3000');
-});
+// app.listen(PORT, () => {
+//     console.log('Server started on port 3000');
+// });
 
 // vitalik : 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 
-// import { swaps } from "./lib/swaps";
+import { metaScore } from "./lib/metaScore";
 
 
-// swaps("0x1cE742C9714edF159a4eD7C988d28E35118000df").then(([data, error]) => {
-//     if (error) {
-//         console.log(error);
-//     }
-//     console.log(data);
-// });
+metaScore("0xA7Cf5Ce90ab016b628152eaa96F57Da2Fdec012D").then(([data, error]) => {
+    if (error) {
+        console.log(error);
+    }
+    console.log("Score", data);
+});
