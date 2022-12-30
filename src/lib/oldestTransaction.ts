@@ -52,5 +52,5 @@ export async function getOldestTransaction(address: string) : Promise<[Transacti
     }
     if (!transactions) return [null, "No transactions found for this address"];
     const firstTransaction = transactions.result[transactions?.total - 1];
-    return [firstTransaction satisfies Transaction, null];
+    return [(firstTransaction satisfies Transaction) || null, null];
 }

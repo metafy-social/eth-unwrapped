@@ -45,19 +45,7 @@ export async function getTransactions(address: string) : Promise<[TransactionDat
     }
 }
 
-export async function getTransactionCount(address: string) : Promise<[number | null, string | null]> {
-    const [transactions, error] = await getTransactions(address);
-    if (error) {
-        return [null, error];
-    }
-    return [transactions?.total as number, null];
-}
-
-export async function getFirstTransactionOf2022(address: string) : Promise<[Transaction | null, string | null]> {
-    const [transactions, error] = await getTransactions(address);
-    if (error) {
-        return [null, error];
-    }
+export async function getFirstTransactionOf2022(transactions: TransactionData) : Promise<[Transaction | null, string | null]> {
     const firstTransaction = transactions?.result[transactions?.total - 1];
-    return [firstTransaction as Transaction, null];
+    return [(firstTransaction satisfies Transaction) || null, null];
 }

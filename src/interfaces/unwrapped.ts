@@ -5,8 +5,8 @@ export default interface Unwrapped {
     oldest?: {
         block_timestamp: number;
         time_ago: string;
-    };
-    first_transaction_2022?: number;
+    } | null;
+    first_transaction_2022?: number | null;
     swaps?: number;
     transactions?: number;
     score: number;
