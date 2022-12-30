@@ -6,14 +6,11 @@ import {
 import { 
     MORALIS_BASE_URL
 } from "./../utils/enums";
-import {
-    NFTData    
-} from './../interfaces';
 
-export async function getCollectedNFTs(address: string): Promise<[NFTData | null, string | null]> {
+export async function getCollectedTokens(address: string) : Promise<void> {
     const options = {
         method: 'GET',
-        url: `${MORALIS_BASE_URL}/${address}/nft?chain=eth&format=decimal&normalizeMetadata=false`,
+        url: `${MORALIS_BASE_URL}/${address}/erc20?chain=eth`,
         headers: {
             accept: 'application/json', 
             'X-API-Key': MORALIS_API_KEY
