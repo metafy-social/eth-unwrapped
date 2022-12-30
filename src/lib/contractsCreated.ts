@@ -1,6 +1,6 @@
 import {
     getTransactions
-} from "./transactions"
+} from "./";
 
 export async function contractsCreated(address: string) : Promise<[number | null, string | null]> {
     const [transactions, error] = await getTransactions(address);

@@ -9,10 +9,9 @@
 
 // vitalik : 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 
-import { metaScore } from "./lib/metaScore";
+import { metaScore } from "./lib";
 
-
-metaScore("0xA7Cf5Ce90ab016b628152eaa96F57Da2Fdec012D").then(([data, error]) => {
+metaScore("0x377ba90a0f828eaC2E63f956875a69e0c16D4C36").then(([data, error]) => {
     if (error) {
         console.log(error);
     }

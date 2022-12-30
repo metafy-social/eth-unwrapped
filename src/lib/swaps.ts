@@ -1,16 +1,12 @@
-import {
-    getTransactions
-} from "./transactions"
+import { 
+    TransactionData 
+} from "../interfaces";
 
 import {
     fetchOne
 } from "./../Repository"
 
-export async function swaps(address: string) : Promise<[number | null, string | null]> {
-    const [transactions, error] = await getTransactions(address);
-    if (error) {
-        return [null, error];
-    }
+export async function swaps(transactions: TransactionData) : Promise<[number | null, string | null]> {
     let swaps = 0;
     if(transactions != null){
         let totalTransactions = transactions?.result.length;
