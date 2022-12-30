@@ -6,8 +6,11 @@ import {
 import { 
     MORALIS_BASE_URL
 } from "./../utils/enums";
+import { 
+    TokenData 
+} from "./../types";
 
-export async function getCollectedTokens(address: string) : Promise<void> {
+export async function getCollectedTokens(address: string) : Promise<[TokenData | null, string | null]> {
     const options = {
         method: 'GET',
         url: `${MORALIS_BASE_URL}/${address}/erc20?chain=eth`,
@@ -19,7 +22,7 @@ export async function getCollectedTokens(address: string) : Promise<void> {
 
     try {
         const { data } = await axios.request(options);
-        return [data satisfies NFTData, null];
+        return [data satisfies TokenData, null];
     } catch (error) {
         if (error instanceof Error) {
             return [null, error.message];
