@@ -10,6 +10,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
 app.get('/:address', async (req, res) => {
     const validate = addressJoi.validate(req.params.address);
     if (validate.error) {
