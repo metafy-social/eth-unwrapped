@@ -1,0 +1,3 @@
+[submodule "eth-unwrapped-front"]
+	path = eth-unwrapped-front
+	url = https://github.com/metafy-social/eth-unwrapped-front
