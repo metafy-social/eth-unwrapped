@@ -8,7 +8,9 @@
     "build": "tsc",
     "dev": "nodemon src/index.ts",
     "start": "node prod/index.js",
-    "test": "jest --detectOpenHandles"
+    "test": "jest --detectOpenHandles",
+    "husky:init": "husky install && husky add .husky/pre-commit \"npm test\"",
+    "husky:sync": "git add .husky/pre-commit"
   },
   "keywords": [],
   "author": "Metafy",
@@ -19,6 +21,7 @@
     "@types/javascript-time-ago": "^2.0.3",
     "@types/jest": "^29.5.1",
     "@types/supertest": "^2.0.12",
+    "husky": "^8.0.3",
     "jest": "^29.5.0",
     "nodemon": "^2.0.20",
     "supertest": "^6.3.3",
