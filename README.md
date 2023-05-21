@@ -1,17 +1,63 @@
-# EthUnwrapped
 
-Get you own ETH statistics unwrapped!
+# 🎁 Eth-unwrapped
 
-## About
-EthUnwrapped is a web application that analizes the Ethereum blockchain and provides a statistics about your usage of the blockchain.
+Welcome to Eth-unwrapped, a comprehensive collection of unwrapped Ethereum tokens! 🚀
 
-## Running the server
-If you wish to run the server locally, you will need to install the following dependencies:
- - [Node.js](https://nodejs.org/en/) (v18.12.1)
+<div align="center">
+  <br>
+  <img src="https://img.shields.io/github/repo-size/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-closed-raw/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <br>
+  <img src="https://img.shields.io/github/forks/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-pr/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-pr-closed-raw/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <br>
+  <img src="https://img.shields.io/github/stars/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <img src="https://img.shields.io/github/last-commit/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <img src="https://img.shields.io/github/commit-activity/y/metafy-social/eth-unwrapped?style=for-the-badge" />
+  
+</div>
 
-Once you have installed Node.js, you can run the following commands to install the dependencies and run the server:
-```bash
-npm install
-npm build
-npm start
-```
+
+## Introduction
+
+eth-unwrapped is a curated repository that provides information and resources about various unwrapped tokens in the Ethereum ecosystem. Unwrapped tokens are traditional assets represented on the Ethereum blockchain through smart contracts, enabling greater interoperability and decentralized finance (DeFi) applications. 💫
+
+## Features
+
+- 📚 Extensive Collection: Browse through a wide range of unwrapped tokens, including stablecoins, commodities, indices, and more.
+- ℹ️ Token Details: Access detailed information about each token, such as contract addresses, supply, decimals, and associated links.
+- 💻 Developer-Friendly: Find resources for integrating unwrapped tokens into your smart contracts and applications.
+- 🤝 Community Contributions: Contribute to the repository by suggesting new tokens or providing updates to existing ones.
+
+## Getting Started
+
+To get started with eth-unwrapped, follow these steps:
+
+1. Clone the repository to your local machine using `git clone `.
+2. Explore the collection of unwrapped tokens by browsing the repository or searching for specific tokens of interest.
+3. Contribute to the repository by opening pull requests for new tokens or updates to existing tokens.
+4. Join the community and participate in discussions around unwrapped tokens and their applications in the Ethereum ecosystem.
+
+## Contributions
+
+Contributions to eth-unwrapped are welcomed and encouraged! If you have suggestions for new tokens to add or updates to existing tokens, please follow these steps:
+
+1. 🍴 Fork the repository to your GitHub account.
+2. 🔀 Create a new branch for your contributions: `git checkout -b your-branch-name`.
+3. 🛠️ Make your changes, add new token information, or update existing data.
+4. ✅ Commit your changes with a descriptive message: `git commit -m "Add XYZ token"`.
+5. 📤 Push your branch to your forked repository: `git push origin your-branch-name`.
+6. 🚀 Open a pull request to the main repository, clearly describing the changes you've made.
+7. ⏳ Await review and feedback from the project maintainers.
+
+## Community
+
+
+ <div align="center">
+  <a href="https://github.com/metafy-social/eth-unwrapped/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=metafy-social/eth-unwrapped" />
+  </a>
+
+Thank you for your contribution to eth-unwrapped! Together, let's unwrap the potential of Ethereum's token ecosystem. 🚀
