@@ -17,6 +17,7 @@ import {
     getFirstTransactionOf2022
 } from "./";
 import timeAgo from './../utils/time';
+import fs from 'fs';
 
 const base = 10000000000000000;
 
@@ -50,19 +51,28 @@ export async function metaScore(address: string) : Promise<[Unwrapped | null, st
         getBalance(address),
     ]);
 
-    if(!nfts) return [null, "No NFTs found for this address"];
+    fs.writeFileSync('jsonx.json', JSON.stringify({
+        nfts,
+        tokens,
+        contracts,
+        transactions,
+        oldestTransaction,
+        balance
+    }, null, 4));
+
+    if(!nfts) nfts = { total: 0, page: 0, page_size: 0, cursor: null, result: [], status: null };
     unwrapped['score'] += nfts.total*2;
     unwrapped['nfts'] = nfts.total;
     
-    if(!tokens) return [null, "No tokens found for this address"];
+    if(!tokens) tokens = [];
     unwrapped['score'] += tokens.length;
     unwrapped['tokens'] = tokens.length;
     
-    if(contracts===null) return [null, "No contracts found for this address"];
+    if(contracts===null) contracts = 0;
     unwrapped['score'] += contracts*3;
     unwrapped['contracts'] = contracts;
     
-    if (!transactions) return [null, "No transactions found for this address"];
+    if(!transactions) transactions = { total: 0, page: 0, page_size: 0, cursor: null, result: [] };
     unwrapped['score'] += transactions.total;
     unwrapped['transactions'] = transactions.total;
     
