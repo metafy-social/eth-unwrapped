@@ -61,8 +61,8 @@ export async function metaScore(address: string) : Promise<[Unwrapped | null, st
     }, null, 4));
 
     if(!nfts) nfts = { total: 0, page: 0, page_size: 0, cursor: null, result: [], status: null };
-    unwrapped['score'] += nfts.total*2;
-    unwrapped['nfts'] = nfts.total;
+    unwrapped['score'] += (nfts.total ?? 0)*2;
+    unwrapped['nfts'] = nfts.total ?? 0;
     
     if(!tokens) tokens = [];
     unwrapped['score'] += tokens.length;
@@ -73,8 +73,8 @@ export async function metaScore(address: string) : Promise<[Unwrapped | null, st
     unwrapped['contracts'] = contracts;
     
     if(!transactions) transactions = { total: 0, page: 0, page_size: 0, cursor: null, result: [] };
-    unwrapped['score'] += transactions.total;
-    unwrapped['transactions'] = transactions.total;
+    unwrapped['score'] += transactions.total ?? 0;
+    unwrapped['transactions'] = transactions.total ?? 0;
     
     if (oldestTransaction!==null) {
         const block_timestamp = oldestTransaction.block_timestamp;
@@ -93,7 +93,7 @@ export async function metaScore(address: string) : Promise<[Unwrapped | null, st
     }
     
     if (!balance) balance = { balance: '0' };
-    unwrapped['score'] += (Number(balance.balance)/base);
+    unwrapped['score'] += (Number(balance.balance??'0')/base);
 
     
     [swap, _] = await swaps(transactions);
