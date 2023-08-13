@@ -92,12 +92,12 @@ export async function metaScore(address: string) : Promise<[Unwrapped | null, st
         unwrapped['oldest'] = null;
     }
     
-    if (!balance) return [null, "No balance found for this address"];
+    if (!balance) balance = { balance: '0' };
     unwrapped['score'] += (Number(balance.balance)/base);
 
     
     [swap, _] = await swaps(transactions);
-    if (swap===null) return [null, "No swaps found for this address"];
+    if (swap===null) swap = 0;
     unwrapped['score'] += swap*1.5;
     unwrapped['swaps'] = swap;
 
