@@ -43,6 +43,9 @@ npm start
 ```
 
 
+<!-- CONTRIBUTORS START -->
+<!-- CONTRIBUTORS END -->
+
 ## 🤝 Contributing
 
 Contributions to EthUnwrapped are welcome! If you would like to contribute, please follow these steps:

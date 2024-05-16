@@ -1,0 +1,34 @@
+name: Update Contributors
+
+on: 
+  push: 
+    branches: 
+      - master
+jobs: 
+  update-readme: 
+    runs-on: ubuntu-latest
+
+    steps: 
+      - uses: actions/checkout@v2
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Update Contributors
+        run: node update-readme.js
+
+      - name: Commit Changes
+        run: | 
+          git config --local user.email "<your-email-address>"
+          git config --local user.name "<your-github-username>"
+          git add README.md
+          git commit -m "Update contributors in README"
+          git push
